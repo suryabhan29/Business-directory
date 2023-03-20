@@ -1,7 +1,8 @@
 //Import area
 
 import React, { useEffect, useState } from 'react'
-import URL from '../helper/Url';
+
+
 
 
 
@@ -17,7 +18,7 @@ export default function Home() {
     const [businessCategory,setBusniessCategory] = useState([]);
 
     useEffect(()=>{
-        fetch(`${URL}/api/business-categories?populate=*`)
+        fetch(`http://localhost:1337/api/business-categories?populate=*`)
         .then((res)=>{
             return res.json()
         })
@@ -41,19 +42,23 @@ export default function Home() {
         <ul className='nav'>
             {
                 businessCategory.map((cv,idx,arr)=>{
-                    return <li key={idx} className='me-3'>
+                    return <li key={idx} className='me-3' >
                                 <a href='#'>
-                                    <img src={`${URL}`+cv.attributes.image.data.attributes.url} /> <br/>
-                                {cv.attributes.name}
+                                    <img src={`http://localhost:1337`+ cv.attributes.image.data.attributes.url} /> <br/>
+                                        {cv.attributes.name}
                                 </a>
-                            </li>
+                            </li >
                 })
             }
             
             
+        </ul>
+        
+            
+            
 
             
-        </ul>
+        
     </>
   )
 }
