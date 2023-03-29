@@ -5,6 +5,15 @@ import logo from '../../logo.svg';
 
 
 export default function Navigation() {
+    //2.1 Hooks area
+
+    //2.2 Function defination area
+    let myLogout=()=>{
+        window.localStorage.removeItem('jwt_token')
+        window.location.href = '/login';
+    }
+
+    //2.3 return statement
   return (
         <>
         <Navbar bg="light" expand="lg" className='h-100'>
@@ -26,8 +35,21 @@ export default function Navigation() {
                         navbarScroll
                     >
                         <Link to="/" className='btn btn-link'>Home</Link>
-                        <Link to="/login" className='btn btn-link'>Login</Link>
-                        <Link to="/register" className='btn btn-link'>Register</Link>
+                        {
+                            window.localStorage.getItem('jwt_token') === null &&
+                            <>
+                                <Link to="/login" className='btn btn-link'>Login</Link>
+                                <Link to="/register" className='btn btn-link'>Register</Link>
+                            </>
+                        }
+                        {
+                            window.localStorage.getItem('jwt_token') !== null &&
+                            <>
+                                <Nav.Link onClick={()=>{myLogout()}} className='btn btn-link'>Logout</Nav.Link>
+                                
+                            </>
+                        }
+                        
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

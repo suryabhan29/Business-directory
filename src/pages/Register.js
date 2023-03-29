@@ -12,7 +12,7 @@ export default function Register() {
 
   //2.2 Defination area
   let registerUser = ()=>{
-    alert('okokokok');
+   // alert('okokokok');
     let u = document.querySelector('input[name=username]').value;
     let e = document.querySelector('input[name=email]').value; ;
     let p = document.querySelector('input[name=password]').value;

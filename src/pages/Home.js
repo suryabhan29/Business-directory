@@ -2,13 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 
-
-
-
-
-
-
-
 // Defination area
 
 export default function Home() {
@@ -38,7 +31,7 @@ export default function Home() {
     
   return (
     <>
-        <h1>Home page</h1>
+        <h1></h1>
         <ul className='nav'>
             {
                 businessCategory.map((cv,idx,arr)=>{
@@ -50,15 +43,7 @@ export default function Home() {
                             </li >
                 })
             }
-            
-            
         </ul>
-        
-            
-            
-
-            
-        
     </>
   )
 }
